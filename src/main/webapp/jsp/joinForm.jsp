@@ -20,24 +20,8 @@
 			<span id="id_message"></span>
 
 			<b>비밀번호</b> 
-			<input type="password" name="pass" id="pass" placeholder="Enter Password" required>
-
-			<b>이름</b>
-			<input type="text" name="name" placeholder="Enter name" maxlength="5" required> 
-				
-			<b>나이</b>
-			<input type="text" name="age" maxlength="2" placeholder="Enter age" required> 
-			
-			<b>성별</b>
-			<div>
-				<input type="radio" name="gender" value="m" id="gender1" checked><span>남자</span>
-				<input type="radio" name="gender" value="f" id="gender2"><span>여자</span>
-			</div>
-
-			<b>이메일 주소</b>
-			<input type="text" name="email" placeholder="Enter email" maxlength="30" required>
-			<span id="email_message"></span>
-			
+			<input type="password" name="password" id="pass" placeholder="Enter Password" required>
+		
 			<div class="clearfix">
 				<button type="submit" class="submitbtn">회원가입</button>
 				<button type="reset" class="cancelbtn">다시작성</button>

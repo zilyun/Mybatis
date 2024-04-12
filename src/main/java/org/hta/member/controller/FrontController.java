@@ -2,11 +2,16 @@ package org.hta.member.controller;
 
 import java.io.IOException;
 
+import org.hta.member.action.DeleteAction;
 import org.hta.member.action.JoinForm;
 import org.hta.member.action.JoinProAction;
+import org.hta.member.action.ListAction;
 import org.hta.member.action.LoginForm;
 import org.hta.member.action.LoginProAction;
+import org.hta.member.action.Logout;
 import org.hta.member.action.MainAction;
+import org.hta.member.action.UpdateForm;
+import org.hta.member.action.UpdatePro;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -60,6 +65,21 @@ public class FrontController extends jakarta.servlet.http.HttpServlet {
 				break;
 			case "/joinPro.net":
 				action = new JoinProAction();
+				break;
+			case "/logout.net":
+				action = new Logout();
+				break;
+			case "/list.net":
+				action = new ListAction();
+				break;
+			case "/delete.net":
+				action = new DeleteAction();
+				break;
+			case "/updateForm.net":
+				action = new UpdateForm();
+				break;
+			case "/updatePro.net":
+				action = new UpdatePro();
 				break;
 		} // switch (command)
 		
