@@ -18,16 +18,15 @@ public class UpdateForm implements Action {
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
+		ActionForward forward = new ActionForward();
+		String id = (String) request.getParameter("id");
 		
 		MemberDAO mdao = new MemberDAO();
-		Member m  = mdao.member_info(id);
+		Member mem  = mdao.select(id);
 		
-		ActionForward forward = new ActionForward();
-		forward.setPath("updateForm.jsp");
+		request.setAttribute("mem", mem);
 		forward.setRedirect(false);
-		request.setAttribute("memberinfo", m);
+		forward.setPath("/jsp/updateForm.jsp");
 		return forward;
 	}
 

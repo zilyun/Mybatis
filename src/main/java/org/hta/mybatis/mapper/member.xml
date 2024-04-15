@@ -24,10 +24,20 @@
 		order by id
 	</select>
 	
-	<select id="select" parameterType="String" resultType="Member">
+	<select id="selectone" parameterType="String" resultType="Member">
 		select id, password
 		from member22
 		where id = #{inputid}
 	</select>
 	
+	<update id="update" parameterType="Member">
+		update member22
+		set password = #{password}
+		where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from member22
+		where id = #{id}
+	</delete>
 </mapper>

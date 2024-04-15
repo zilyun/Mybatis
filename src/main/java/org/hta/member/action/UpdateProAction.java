@@ -6,34 +6,41 @@ import java.io.PrintWriter;
 import org.hta.member.controller.Action;
 import org.hta.member.controller.ActionForward;
 import org.hta.member.dao.MemberDAO;
+import org.hta.member.domain.Member;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class DeleteAction implements Action {
+public class UpdateProAction implements Action {
 
 	@Override
 	public ActionForward excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
+		String pass = request.getParameter("password");
+		
+		Member mem = new Member();
+		mem.setId(request.getParameter("id"));
+		mem.setPassword(request.getParameter("password"));
+		
 		MemberDAO md = new MemberDAO();
-		int result = md.delete(id);
+		int result = md.update(mem);
 		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
 		if(result == 1) {
 			out.println("<script>");
-			out.println("alert('삭제 성공입니다.');");
+			out.println("alert('수정 성공입니다.');");
 			out.println("location.href='list.net'");
 			out.println("</script>");
 			out.close();
 		} else {
 			out.println("<script>");
-			out.println("alert('삭제 실패입니다.');");
-			out.println("location.href='list.net'");
+			out.println("alert('수정 실패입니다.');");
+			out.println("history.go(-1)'");
 			out.println("</script>");
 			out.close();
 		}

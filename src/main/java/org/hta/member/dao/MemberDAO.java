@@ -70,21 +70,38 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return list;
 	}
 
-
-	public Member member_info(String id) {
-		Member member = null;
+	public Member select(String id) {
+		Member mem = new Member();
 		try(SqlSession session = getSession()) {
-			member = session.selectOne("member_info", id); 
+			mem = session.selectOne("selectone", id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return member;
+		return mem;
+	}
+
+
+	public int update(Member mem) {
+		int result = 0;
+		try(SqlSession session = getSession()) {
+			result = session.update("update", mem);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
+	public int delete(String id) {
+		int result = 0;
+		try(SqlSession session = getSession()) {
+			result = session.update("delete", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
-
 }

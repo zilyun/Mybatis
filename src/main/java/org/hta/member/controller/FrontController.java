@@ -11,7 +11,7 @@ import org.hta.member.action.LoginProAction;
 import org.hta.member.action.Logout;
 import org.hta.member.action.MainAction;
 import org.hta.member.action.UpdateForm;
-import org.hta.member.action.UpdatePro;
+import org.hta.member.action.UpdateProAction;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -79,7 +79,7 @@ public class FrontController extends jakarta.servlet.http.HttpServlet {
 				action = new UpdateForm();
 				break;
 			case "/updatePro.net":
-				action = new UpdatePro();
+				action = new UpdateProAction();
 				break;
 		} // switch (command)
 		

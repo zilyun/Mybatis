@@ -10,6 +10,7 @@
 <title>ArrayList이용합니다.</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="${pageContext.request.contextPath}/js/jquery-3.7.1.js"></script>
 <style>
 .container {
 	width: 500px;
@@ -63,6 +64,13 @@ table, h4 {
 		$(".btn-info").click(function() {
 			const id = $(this).attr("data-id");
 			location.href = 'updateForm.net?id='+id;
+		})
+		
+		$(".btn-danger").click(function() {
+			const id = $(this).attr("data-id");
+			if(confirm('정말 삭제하시겠습니까?')){
+				location.href = 'delete.net?id='+id;
+			}
 		})
 	</script>
 </body>

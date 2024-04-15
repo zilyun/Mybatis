@@ -19,16 +19,15 @@ input[type=file] {
 </head>
 <body>
 <%-- <jsp:include page="../board/header.jsp" /> --%>
-<form name="joinform" action="updatePro.net" method="post" enctype="multipart/form-data">
+<form name="joinform" action="updatePro.net" method="post">
 	<h3>회원 정보 수정</h3>
 	<hr>
 	<b>아이디</b>
-	<input type="text" name="id" value="${memberinfo.id}" readonly>
+	<input type="text" name="id" value="${mem.id}" readonly>
 	<b>비밀번호</b>
-	<input type="password" name="pass" value="${memberinfo.password}" readonly>
-		
+	<input type="password" name="password" value="${mem.password}">
 	<div class="clearfix">
-		<button type="submit" class="submitbtn">수정</button>
+		<button type="submit" class="submitbtn">변경</button>
 		<button type="button" class="cancelbtn">취소</button>
 	</div>	
 </form>
